@@ -135,7 +135,7 @@ module P
     regexp(/\w+/)
   end
 
-  # Sequence of parsers in order. Drops raw string results, flattens arrays
+  # Sequence of parsers in order. Drops raw string results
   sig { params(parsers: T.any(Parser, String)).returns(Parser) }
   def self.seq(*parsers)
     Parser.new do |i|
@@ -143,7 +143,7 @@ module P
       rest = i
       parsers.each do |p|
         if p.is_a?(String)
-          _, rest = P.str(p).parse(rest)
+          _, rest = str(p).parse(rest)
         else
           res, rest = p.parse(rest)
           results << res
