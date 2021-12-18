@@ -7,7 +7,7 @@ require_relative './aoc'
 
 extend T::Sig
 
-matrix = Matrix.rows(AOC.get_input(9).split("\n").map { _1.chars.map(&:to_i) })
+matrix = AOC.digit_matrix(AOC.get_input(9))
 
 # Can't use Matrix with Sorbet because it's a Generic class but it defines []
 sig { params(matrix: T.untyped, r: Integer, c: Integer).returns(T::Array[[Integer, Integer]]) }
