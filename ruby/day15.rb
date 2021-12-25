@@ -138,6 +138,3 @@ m2 = Matrix.vstack(*T.unsafe(row_matrices))
 
 pt2 = CaveGraph.new(m2).min_cost_between([0, 0], [m2.row_size - 1, m2.column_size - 1])
 puts "Part 1: #{pt2}"
-
-# 2602 is too low
-# 3385 is too high
